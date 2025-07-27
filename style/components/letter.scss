@@ -1,0 +1,82 @@
+$primary-color: #1a1a1d;
+$accent-color: #c3073f;
+$text-color: #ffffff;
+$hover-color: #6f2232;
+$pressed-color: darken($primary-color, 5%);
+$font-stack: 'Press Start 2P', monospace;
+
+.start-button {
+  display: inline-block;
+  text-decoration: none;
+  font-family: $font-stack;
+  background-color: $primary-color;
+  color: $text-color;
+  padding: 1rem 1.5rem;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  animation: buttonPulse 2s infinite;
+  box-shadow: 0 8px 0 $accent-color, 0 8px 15px rgba(0, 0, 0, 0.4);
+  position: relative;
+  top: 0;
+
+  &:hover {
+    background-color: $hover-color;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
+  }
+
+  &:active {
+    background-color: $pressed-color;
+    transform: translateY(6px);
+    box-shadow: 0 2px 0 $accent-color, 0 4px 6px rgba(0, 0, 0, 0.3);
+  }
+
+  &.disabled {
+    background-color: #444;
+    color: #ccc;
+    cursor: not-allowed;
+    animation: none;
+    transform: none;
+    box-shadow: none;
+    pointer-events: none;
+  }
+
+  &.clicked {
+    animation: buttonClick 0.3s ease;
+  }
+}
+
+@keyframes buttonPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 8px 0 $accent-color, 0 8px 15px rgba(0, 0, 0, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(195, 7, 63, 0.7);
+  }
+}
+
+@keyframes buttonClick {
+  0% {
+    transform: translateY(0);
+    box-shadow: 0 8px 0 $accent-color;
+  }
+  50% {
+    transform: translateY(6px);
+    box-shadow: 0 2px 0 $accent-color;
+  }
+  100% {
+    transform: translateY(0);
+    box-shadow: 0 8px 0 $accent-color;
+  }
+}
+
+.start-button-letter {
+  padding: 2rem;
+  margin-left: 0.5rem;
+  margin-bottom: 2rem;
+}

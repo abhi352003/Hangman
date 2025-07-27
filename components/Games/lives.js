@@ -14,7 +14,7 @@ function Lives({ livesleft }) {
         <div className="hangman__element"></div>
       </div>
 
-      <div>Lives : {livesleft}</div>
+      <div className="lives">Lives : {livesleft}</div>
     </div>
   );
 }

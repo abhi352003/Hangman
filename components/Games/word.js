@@ -4,13 +4,13 @@ function Word({
     actualWord,playedLetters
 }) {
   return (
-    <div>
+    <div className='word-container'>
         {[...actualWord].map((letter) =>(
             <>
             {playedLetters.has(letter) ? (
-                <span>{letter}</span>
+                <span className='word '>{letter}</span>
             ): (
-                <span>&nbsp;_&nbsp;</span>
+                <span className='word'>&nbsp;_&nbsp;</span>
             )}
             </>
         ))}
